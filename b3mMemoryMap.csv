@@ -1,0 +1,124 @@
+address,addressName,propertyName,type,min,max,attribute,contents,remarks
+0x00,SYSTEM_ID,ID ,byte,0,255,RW,ID番号,
+0x01,SYSTEM_BAUDRATE,Baudrate,ulong,115200,3000000,RW,ボーレート、通信速度,
+0x05,SYSTEM_POSITION_MIN,PositionMinLimit,short,-32000,32000,RW,最小位置制限,
+0x07,SYSTEM_POSITION_MAX,PositionMaxLimit,short,-32000,32000,RW,最大位置制限,
+0x09,SYSTEM_POSITION_CENTER,PositionCenterOffset,short,-18000,18000,RW,中央値オフセット,
+0x0B,SYSTEM_MCU_TEMP_LIMIT,MCUTempLimit,short,-32768,32768,RW,MCU温度リミット,
+0x0D,SYSTEM_MCU_TEMP_LIMIT_PR,MCUTempPowerLimit,byte,0,100,RW,MCU温度制限時のPWM制限率,
+0x0E,SYSTEM_MOTOR_TEMP_LIMIT,MotorTempLimit,short,-32768,32768,RW,モーター温度リミット,
+0x10,SYSTEM_MOTOR_TEMP_LIMIT_PR,MotorTempPowerLimit,byte,0,100,RW,モーター温度制限時のPWM制限率,
+0x11,SYSTEM_CURRENT_LIMIT,CurrentLimit,ushort,0,65535,RW,電流制限値,
+0x13,SYSTEM_CURRENT_LIMIT_PR,CurrentPowerLimit,byte,0,100,RW,電流制限時のPWM制限率,
+0x14,SYSTEM_LOCKDETECT_TIME,LockDetectTime,byte,0,255,RW,モーターロックと認識されるまでの時間,
+0x15,SYSTEM_LOCKDETECT_OUTRATE,LockDetectOutputRate,byte,0,100,RW,ロックと認識される最大出力からの割合,
+0x16,SYSTEM_LOCKDETECT_TIME_PR,LockDetectTimePowerLimit,byte,0,100,RW,ロック検知時の脱力度合い,
+0x17,SYSTEM_INPUT_VOLTAGE_MIN,InputVoltageMin,ushort,0,65535,RW,有効入力電圧最小値,
+0x19,SYSTEM_INPUT_VOLTAGE_MAX,InputVoltageMax,ushort,0,65535,RW,有効入力電圧最大値,
+0x1B,SYSTEM_TORQUE_LIMIT,TorqueLimit,byte,0,100,RW,PWM制限,
+0x1C,SYSTEM_DEADBAND_WIDTH,DeadBandWidth,ushort,0,65535,RW,不感帯の幅,
+0x1E,,,short,,,,Reserved,unique
+0x20,,,short,,,,Reserved,unique
+0x22,SYSTEM_MOTOR_CW_RATIO,MotorCWRatio,byte,0,100,RW,モーター回転特性CW方向の割合,
+0x23,SYSTEM_MOTOR_CCW_RATIO,MotorCCWRatio,byte,0,100,RW,モーター回転特性CCW方向の割合,
+0x27,SERVO_SERVO_OPTION,ServoOption,byte,,,RW,サーボオプション(※),
+0x28,SERVO_SERVO_MODE,ServoMode,ushort,,,,動作モード,
+0x28,SERVO_TORQUE_ON,TorqueON,byte,0,255,RW,Normal/FREE/Holdモード切り替え,
+0x29,SERVO_RUN_MODE,RunMode,byte,-32000,32000,RW,軌道生成タイプ,
+0x2A,SERVO_DESIRED_POSITION,DesiredPosition,short,-32000,32000,RW,目標位置,
+0x2C,SERVO_CURRENT_POSITION,CurrentPosition,short,,,RO,現在位置,
+0x2E,SERVO_PREVIOUS_POSITION,PreviousPosition,short,,,RO,1サンプリング回前の位置,
+0x30,SERVO_DESIRED_VELOSITY,DesiredVelosity,short,-32768,32768,RW,目標速度,
+0x32,SERVO_CURRENT_VELOSITY,CurrentVelosity,short,,,RO,現在速度,
+0x34,SERVO_PREVIOUS_VELOSITY,PreviousVelosity,short,,,RO,1サンプリング回前の速度,
+0x36,SERVO_DESIRED_TIME,DesiredTime,ushort,0,65565,RW,目標時間,
+0x38,SERVO_RUNNING_TIME,RunningTime,ushort,,,RO,コマンド実行中時間,
+0x3A,SERVO_WORKING_TIME,WorkingTime,ushort,,,RO,起動時からの経過時間,
+0x3C,SERVO_DESIRED_TORQUE,DesiredTorque,short,-32768,32768,RW,目標トルク,
+0x3E,SERVO_SYSTEM_CLOCK,SystemClock,ulong,,,RO,システムのクロック,
+0x42,SERVO_SAMPLING_TIME,SamplingTime,ushort,,,RO,サンプリングタイム,
+0x44,SERVO_MCU_TEMP,MUCTemperature,short,,,RO,現在のMCU温度,
+0x46,SERVO_MOTOR_TEMP,MotorTemperature,short,,,RO,現在のモーター温度,
+0x48,SERVO_CURRENT,Current,short,,,RO,現在の(負荷)電流値,
+0x4A,SERVO_INPUT_VOLTAGE,InputVoltage,ushort,,,RO,現在の入力電圧値,
+0x4C,SERVO_PWM_DUTY,PwmDuty,ushort,,,RW,現在のPWMデューティ比,
+0x4E,SERVO_PWM_FREQUENCY,PwmFrequency,ushort,0,65565,RW,PWM周期,
+0x50,SERVO_ENCODER_VALUE,EncoderValue,ushort,,,RO,エンコーダーの現在値,
+0x52,SERVO_ENCODER_COUNT,EncoderCount,long,-2147483648,2147483647,RW,エンコーダーのトータルカウント数,
+0x56,SERVO_HALLIC_STATE,HallICState,byte,,,RO,ホールICの状態,
+0x5C,CONTROL_CONTROL_LOW,ControlRow,ushort,,,RW,PIDゲインのパターンを変更する,unique
+0x5C,CONTROL_GAIN_PRESETNO,GainPresetNo,byte,0,2,RW,PIDゲインのプリセット番号,
+0x5D,CONTROL_TYPE,ControlType,byte,,,,Reserved,
+0x5E,CONTROL_KP0,Kp0,ulong,0,2147483647,RW,比例ゲイン0,
+0x62,CONTROL_KD0,Kd0,ulong,0,2147483647,RW,微分ゲイン0,
+0x66,CONTROL_KI0,Ki0,ulong,0,2147483647,RW,積分ゲイン0,
+0x6A,CONTROL_STATIC_FRICTION0,StaticFriction0,ushort,0,2147483647,RW,静止摩擦係数0,
+0x6C,CONTROL_DYNAMIC_FRICTION0,DynamicFriction0,ushort,0,2147483647,RW,動摩擦係数0,
+0x6E,CONTROL_KP1,Kp1,ulong,0,2147483647,RW,比例ゲイン1,
+0x72,CONTROL_KD1,Kd1,ulong,0,2147483647,RW,微分ゲイン1,
+0x76,CONTROL_KI1,Ki1,ulong,0,2147483647,RW,積分ゲイン1,
+0x7A,CONTROL_STATIC_FRICTION1,StaticFriction1,ushort,0,2147483647,RW,静止摩擦係数1,
+0x7C,CONTROL_DYNAMIC_FRICTION1,DynamicFriction1,ushort,0,2147483647,RW,動摩擦係数1,
+0x7E,CONTROL_KP2,Kp2,ulong,0,2147483647,RW,比例ゲイン2,
+0x82,CONTROL_KD2,Kd2,ulong,0,2147483647,RW,微分ゲイン2,
+0x86,CONTROL_KI2,Ki2,ulong,0,2147483647,RW,積分ゲイン2,
+0x8A,CONTROL_STATIC_FRICTION2,StaticFriction2,ushort,0,2147483647,RW,静止摩擦係数2,
+0x8C,CONTROL_DYNAMIC_FRICTION2,DynamicFriction2,ushort,0,2147483647,RW,動摩擦係数2,
+0x9D,STATUS_BASE_ADDR,StatusError,byte,,,,エラーステータス,
+0x9E,STATUS_SYSTEM,Status,ulong,,,,エラーなどのステータス,old
+0x9E,STATUS_SYSTEM,StatusSystem,byte,,,,システムエラー,
+0x9F,STATUS_MOTOR,StatusMotor,byte,,,,モーターステータス異常,
+0xA0,STATUS_UART,StatusUart,byte,,,,UART受信エラー,
+0xA1,STATUS_COMMAND,StatusCommand,byte,,,,コマンドエラーなど,
+0xA2,CONFIG_MODEL_NUMBER,ModelNumber,ulong,,,RO,モデル区分,unique
+0xA2,CONFIG_MODEL_NUMBER_VOLTAGE_CLASS,ModelNumberVoltageClass,char,,,RO,電圧区分,
+0xA3,CONFIG_MODEL_NUMBER_VERSION,ModelNumberVersion,byte,,,RO,モデルバージョン,
+0xA4,CONFIG_MODEL_NUMBER_TORQUE,ModelNumberTorque,byte,,,RO,トルク番号,
+0xA5,CONFIG_MODEL_NUMBER_CASE,ModelNumberCase,byte,,,RO,ケース番号,
+0xA6,CONFIG_MODEL_TYPE,ModelType,ulong,,,RO,モデル種類,unique
+0xA6,,,,,,,,
+0xA7,,,,,,,,
+0xA8,CONFIG_MODEL_TYPE_MOTOR,ModelTypeMotor,char,,,RO,モータータイプ,
+0xA9,CONFIG_MODEL_TYPE_DEVICE,ModelTypeDevice,char,,,RO,デバイスタイプ,
+0xAA,CONFIG_FW_VERSION,FwVersion,ulong,,,RO,ファームウェア情報,unique
+0xAA,CONFIG_FW_BUID,FwVersionBuild,byte,,,RO,ビルド番号,
+0xAB,CONFIG_FW_REVISION,FwVersionRevision,byte,,,RO,リビジョン番号,
+0xAC,CONFIG_FW_MINOR,FwVersionMinor,byte,,,RO,マイナーバージョン,
+0xAD,CONFIG_FW_MAJOR,FwVersionMajor,byte,,,RO,メジャーバージョン,
+0xAE,CONFIG_ENC_OFFSET_CENTER,EncoderOffsetCenter,short,,,RW,絶対00位置からのエンコーダのずれ,don’t change
+0xB0,CONFIG_ENC_OFFSET,EncoderOffset,short,,,RW,相対01位置での誤差,don’t change
+0xB2,CONFIG_ENC_OFFSET,EncoderOffset,short,,,RW,相対02位置での誤差,don’t change
+0xB4,CONFIG_ENC_OFFSET,EncoderOffset,short,,,RW,相対03位置での誤差,don’t change
+0xB6,CONFIG_ENC_OFFSET,EncoderOffset,short,,,RW,相対04位置での誤差,don’t change
+0xB8,CONFIG_ENC_OFFSET,EncoderOffset,short,,,RW,相対05位置での誤差,don’t change
+0xBA,CONFIG_ENC_OFFSET,EncoderOffset,short,,,RW,相対06位置での誤差,don’t change
+0xBC,CONFIG_ENC_OFFSET,EncoderOffset,short,,,RW,相対07位置での誤差,don’t change
+0xBE,CONFIG_ENC_OFFSET,EncoderOffset,short,,,RW,相対08位置での誤差,don’t change
+0xC0,CONFIG_ENC_OFFSET,EncoderOffset,short,,,RW,相対09位置での誤差,don’t change
+0xC2,CONFIG_ENC_OFFSET,EncoderOffset,short,,,RW,相対10位置での誤差,don’t change
+0xC4,CONFIG_ENC_OFFSET,EncoderOffset,short,,,RW,相対11位置での誤差,don’t change
+0xC6,CONFIG_ENC_OFFSET,EncoderOffset,short,,,RW,相対12位置での誤差,don’t change
+0xC8,CONFIG_ENC_OFFSET,EncoderOffset,short,,,RW,相対13位置での誤差,don’t change
+0xCA,CONFIG_ENC_OFFSET,EncoderOffset,short,,,RW,相対14位置での誤差,don’t change
+0xCC,CONFIG_ENC_OFFSET,EncoderOffset,short,,,RW,相対15位置での誤差,don’t change
+0xCE,CONFIG_ENC_OFFSET,EncoderOffset,short,,,RW,相対16位置での誤差,don’t change
+0xD0,CONFIG_ENC_OFFSET,EncoderOffset,short,,,RW,相対17位置での誤差,don’t change
+0xD2,CONFIG_ENC_OFFSET,EncoderOffset,short,,,RW,相対18位置での誤差,don’t change
+0xD4,CONFIG_ENC_OFFSET,EncoderOffset,short,,,RW,相対19位置での誤差,don’t change
+0xD6,CONFIG_ENC_OFFSET,EncoderOffset,short,,,RW,相対20位置での誤差,don’t change
+0xD8,CONFIG_ENC_OFFSET,EncoderOffset,short,,,RW,相対21位置での誤差,don’t change
+0xDA,CONFIG_ENC_OFFSET,EncoderOffset,short,,,RW,相対22位置での誤差,don’t change
+0xDC,CONFIG_ENC_OFFSET,EncoderOffset,short,,,RW,相対23位置での誤差,don’t change
+0xDE,CONFIG_ENC_OFFSET,EncoderOffset,short,,,RW,相対24位置での誤差,don’t change
+0xE0,CONFIG_ENC_OFFSET,EncoderOffset,short,,,RW,相対25位置での誤差,don’t change
+0xE2,CONFIG_ENC_OFFSET,EncoderOffset,short,,,RW,相対26位置での誤差,don’t change
+0xE4,CONFIG_ENC_OFFSET,EncoderOffset,short,,,RW,相対27位置での誤差,don’t change
+0xE6,CONFIG_ENC_OFFSET,EncoderOffset,short,,,RW,相対28位置での誤差,don’t change
+0xE8,CONFIG_ENC_OFFSET,EncoderOffset,short,,,RW,相対29位置での誤差,don’t change
+0xEA,CONFIG_ENC_OFFSET,EncoderOffset,short,,,RW,相対30位置での誤差,don’t change
+0xEC,CONFIG_ENC_OFFSET,EncoderOffset,short,,,RW,相対31位置での誤差,don’t change
+0xEE,CONFIG_ENC_OFFSET,EncoderOffset,short,,,RW,相対32位置での誤差,don’t change
+0xF0,CONFIG_ENC_OFFSET,EncoderOffset,short,,,RW,相対33位置での誤差,don’t change
+0xF2,CONFIG_ENC_OFFSET,EncoderOffset,short,,,RW,相対34位置での誤差,don’t change
+0xF4,CONFIG_ENC_OFFSET,EncoderOffset,short,,,RW,相対35位置での誤差,don’t change
+0xF6,CONFIG_ENC_OFFSET,EncoderOffset,short,,,RW,相対36位置での誤差,don’t change

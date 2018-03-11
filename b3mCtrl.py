@@ -1,7 +1,6 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
-import msPython
 import math, time
 import serial
 
@@ -237,7 +236,7 @@ class B3mClass(object):
 			# self.txtFile.write(str(snycTime)+"\n")
 			return rxBuf
 		else:
-			msPython.printColor("b3m rx signal error"+str(id), "yellow")
+			print "b3m rx signal error"+str(id)
 			return False
 
 	## ROMをRAMに書き込み(シングル/マルチ)
